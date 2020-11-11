@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookmarkManagerTest {
-    /* take comments when BookmarkManager is implemented
+
     private BookmarkManager manager;
     @BeforeEach
     void setUp() {
@@ -24,9 +24,25 @@ class BookmarkManagerTest {
         assertEquals(4,manager.getTotalEntries());
     }
 
-    */
+    @Test
+    void getTotalFoldersTest(){
+        assertEquals(1,manager.getTotalFolders());
+        manager.addBookmarkFolder("bookmarks", "Redes Sociais");
+        manager.addBookmarkFolder("bookmarks", "Diversos");
+        assertEquals(3,manager.getTotalFolders());
+        manager.addBookmarkEntry("diversos", "Gmail", "http://www.gmail.com");
+        manager.addBookmarkEntry("diversos", "StackOverflow", "http://www.stackoverflow.com");
+        assertEquals(3,manager.getTotalFolders());
+    }
 
-
+    @Test
+    void getFullPathOfTest(){
+        manager.addBookmarkFolder("bookmarks", "Redes Sociais");
+        manager.addBookmarkFolder("bookmarks", "Diversos");
+        manager.addBookmarkEntry("diversos", "Gmail", "http://www.gmail.com");
+        manager.addBookmarkEntry("diversos", "StackOverflow", "http://www.stackoverflow.com");
+        assertEquals("Gmail -> Diversos -> Bookmarks",manager.fullPathOf("Gmail"));
+    }
 
 
 }

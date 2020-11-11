@@ -270,6 +270,16 @@ public class TreeLinked<E> implements Tree<E> {
         return str;
     }
 
+    public void move(Position<E> existingPosition, Position<E> newParent){
+        TreeNode existingNode = checkPosition(existingPosition);
+        TreeNode newParentNode = checkPosition(newParent);
+        TreeNode oldParentNode = existingNode.parent;
+
+        existingNode.parent = newParentNode;
+        newParentNode.children.add(existingNode);
+        oldParentNode.children.remove(existingNode);
+    }
+
     public String toString() {
         String str = "";
         if (!isEmpty()) {

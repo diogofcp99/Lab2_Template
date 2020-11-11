@@ -6,6 +6,7 @@
 package pt.pa;
 
 import pt.pa.model.BookmarkInvalidOperation;
+import pt.pa.model.BookmarkManager;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*     take comments when BookmarkManager is implemented
+
         try {
             BookmarkManager manager = new BookmarkManager();
             
@@ -38,15 +39,13 @@ public class Main {
             
             manager.addBookmarkEntry("bookmarks", "IPS", "http://www.ips.pt");
 
-            System.out.println(manager);
+            System.out.println(manager.fullPathOf("Gmail"));
 
             System.exit(0);
 
         } catch (BookmarkInvalidOperation exception) {
             System.err.println(exception.getMessage());
         }
-
-         */
     }
     
 }
